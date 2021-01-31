@@ -1,0 +1,22 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/01/30
+
+I learned that there are two ways to get a filename.
+1. Define the filename as a constant with [#define] keyword and use the constant.
+2. Make [load] function take a filename as a parameter and use the parameter.
+
+C++ structs are very similar to C structs; however, C++ structs can be passed as a reference (with [&]) and it simplifies the syntax.
+
+Unlike C where memory management was done with [malloc] and [free], C++ memory management is done with [new] and [delete]. Deallocation of array can be done with [delete[]].
+
+[FILE] can be rewound by [rewind] function after reading it once, so it is not necessary to re-open a file to re-read.
+
+Reading a variable-length string is done in three steps.
+1. Read the string from file with [fscanf] function into a temporary variable.
+2. Dynamically allocate a string.
+3. Copy string from temporary variable to dynamically allocated one.
+
+Multiple functions with the same name can be declared when they have different parameter types. C++ compiler can determine which overload I used by the type of argument passed in.
+

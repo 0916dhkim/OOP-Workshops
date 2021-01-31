@@ -1,3 +1,7 @@
+// Name: Donghyeon Kim
+// Email: dkim167@myseneca.ca
+// ID: 151613197
+// Date: 2021/01/30
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include "File.h"
@@ -20,5 +24,10 @@ namespace sdds {
    void closeFile() {
       if (fptr) fclose(fptr);
    }
-
+    bool read(char postalCode[]) {
+      return fscanf(fptr, "%[^,],", postalCode) == 1;
+    }
+    bool read(int &population) {
+      return fscanf(fptr, "%d\n", &population) == 1;
+    }
 }
