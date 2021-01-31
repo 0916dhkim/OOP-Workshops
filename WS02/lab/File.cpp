@@ -1,7 +1,12 @@
+// Name: Donghyeon Kim
+// Email: dkim167@myseneca.ca
+// ID: 151613197
+// Date: 2021/01/30
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
 #include "File.h"
 
+using namespace std;
 namespace sdds {
    FILE* fptr;
    bool openFile(const char filename[]) {
@@ -20,15 +25,13 @@ namespace sdds {
    void closeFile() {
       if (fptr) fclose(fptr);
    }
-   /* TODO: read functions go here    
-   bool read(................) {
-      return .....
+   bool read(char name[]) {
+      return fscanf(fptr, "%[^\n]\n", name) == 1;
    }
-   bool read(................) {
-      return .....
+   bool read(int &emNo) {
+      return fscanf(fptr, "%d,", &emNo) == 1;
    }
-   bool read(................) {
-      return .....
+   bool read(double &salary) {
+      return fscanf(fptr, "%lf,", &salary) == 1;
    }
-   */
 }
