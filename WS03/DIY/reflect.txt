@@ -1,0 +1,13 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/02/05
+
+Default constructor is the constructor function that takes no argument. The purpose of default constructors is to initialize a class instance to the default empty state. Sometimes the default empty state is not a valid state, so it might be necessary to check validity with [isValid] method. Container classes like CalorieList need to check validity of element items in addition to its own attributes. State of a class instance is stored in private attributes to prevent users from directly modifying the state.
+
+Unlike [printf] function, [cout] uses special objects from [iomanip] to format strings. Some formats like [setfill] need to be reset manually after use.
+
+In Food class, the time of consumption had to be converted to its corresponding string (i.e. 1 to "Breakfast"). I solved this problem by saving the strings to global constants then mapping them with a switch clause.
+
+Class instances can be reused without calling the constructor again if there is an [init] function. Calling [deallocate] method is required before each [init] call.
+
