@@ -130,15 +130,13 @@ namespace sdds {
     cout << setw(7) << right << setprecision(1) << fixed << this->capacity();
     cout << "cc (" << this->m_hieght << "x" << this->m_diameter << ") Canister";
 
-    if (this->m_contentName != nullptr) {
-      if (!this->m_usable) {
-        cout << " of Unusable content, discard!";
-      } else {
-        cout << " of ";
-        cout << setw(7) << right << setprecision(1) << fixed << this->m_contentVolume;
-        cout << "cc   ";
-        if (this->m_contentName != nullptr) cout << this->m_contentName;
-      }
+    if (!this->m_usable) {
+      cout << " of Unusable content, discard!";
+    } else if (this->m_contentName != nullptr) {
+      cout << " of ";
+      cout << setw(7) << right << setprecision(1) << fixed << this->m_contentVolume;
+      cout << "cc   ";
+      cout << this->m_contentName;
     }
     return cout;
   }
