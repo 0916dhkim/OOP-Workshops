@@ -1,3 +1,7 @@
+// Name: Donghyeon Kim
+// Email: dkim167@myseneca.ca
+// ID: 151613197
+// Date: 2021/02/08
 #ifndef SDDS_BOX_H
 #define SDDS_BOX_H
 #include <iostream>
