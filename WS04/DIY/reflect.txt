@@ -1,0 +1,12 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/02/05
+
+Instead of having a separate function for initialization, default constructor can be used. The default constructor is a special member function that has the same name as the class which has no parameter. The default constructor is used when a variable of the class is declared, or an array of the class is declared (e.g. `Label labels[];`).
+
+Constructor can be overloaded, so developers can declare constructors that take parameters. This feature is useful when constructors need to take initial values for the attributes.
+
+Desctructor is called when a class instance goes out of scope or `delete` keyword is used. Developers can add cleanup logic inside destructors. In this workshop, there were two attributes which were dynamically allocated: `Label.m_content` and `LabelMaker.m_labels`. Both of which are deallocated inside corresponding destructors.
+
+C++ provides stream interface for user input called `cin`, just like how it provides `cout` for output. However, I used `scanf` (a standard C function) in this workshop because I could not find a way to read up to a newline character with `cin`.
