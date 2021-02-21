@@ -43,4 +43,132 @@ namespace sdds {
       return cout;
    }
 
+   Account::operator bool() const {
+     return this->m_number > 0;
+   }
+
+   Account::operator int() const {
+     return this->m_number;
+   }
+
+   Account::operator double() const {
+     return this->m_balance;
+   }
+
+   bool Account::operator~() const {
+     return this->m_number == 0;
+   }
+
+   Account& Account::operator=(int number) {
+     if (this->m_number != 0) {
+       // This is not new. No-op.
+       return *this;
+     }
+
+     this->setEmpty();
+     if (number >= 10000 && number <= 99999) {
+       this->m_number = number;
+     }
+     return *this;
+   }
+
+   Account& Account::operator=(Account &right) {
+     if (this->m_number != 0) {
+       // This is not new. No-op.
+       return *this;
+     }
+     if (!right) {
+       // Right hand side is not valid. No-op.
+       return *this;
+     }
+
+     // Set this.
+     this->m_number = right.m_number;
+     this->m_balance = right.m_balance;
+
+     // Reset right hand side.
+     right.m_number = 0;
+     right.m_balance = 0;
+
+     return *this;
+   }
+
+   Account& Account::operator+=(double amount) {
+     if (!*this) {
+       // This is not valid. No-op.
+       return *this;
+     }
+     if (amount < 0) {
+       // Amount is negative. No-op.
+       return *this;
+     }
+
+     this->m_balance += amount;
+     return *this;
+   }
+
+   Account& Account::operator-=(double amount) {
+     if (!*this) {
+       // This is not valid. No-op.
+       return *this;
+     }
+     if (amount < 0) {
+       // Amount is negative. No-op.
+       return *this;
+     }
+     if (amount > this->m_balance) {
+       // Insufficient balance. No-op.
+       return *this;
+     }
+
+     this->m_balance -= amount;
+     return *this;
+   }
+
+   Account& Account::operator<<(Account& right) {
+     if (!*this || !right) {
+       // Either account is not valid. No-op.
+       return *this;
+     }
+     if (this->m_number == right.m_number) {
+       // This is the same account as the right hand side. No-op.
+       return *this;
+     }
+
+     this->m_balance += right.m_balance;
+     right.m_balance = 0;
+     return *this;
+   }
+
+   Account& Account::operator>>(Account& right) {
+     if (!*this || !right) {
+       // Either account is not valid. No-op.
+       return *this;
+     }
+     if (this->m_number == right.m_number) {
+       // This is the same account as the right hand side. No-op.
+       return *this;
+     }
+
+     right.m_balance += this->m_balance;
+     this->m_balance = 0;
+     return *this;
+   }
+
+   double operator+(const Account& left, const Account& right) {
+     if (!left || !right) {
+       // Either account is not valid.
+       return 0;
+     }
+     return left.m_balance + right.m_balance;
+   }
+
+   double& operator+=(double& left, const Account& right) {
+     if (!right) {
+       // The account is not valid.
+       return left;
+     }
+     left += right.m_balance;
+     return left;
+   }
 }
