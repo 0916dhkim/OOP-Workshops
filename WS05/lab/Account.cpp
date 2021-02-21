@@ -1,3 +1,7 @@
+// Name: Donghyeon Kim
+// Email: dkim167@myseneca.ca
+// ID: 151613197
+// Date: 2021/02/21
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include "Account.h"
