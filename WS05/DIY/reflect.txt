@@ -1,0 +1,11 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/02/21
+
+The C++ programming language allows overloading many built-in operators like `+`, `=` or `<<`. This feature can help programmers to simplify trivial operations which can be quite verbose if done only with class methods. For example, an expression like `myGrade.plus(yourGrade).times(bonus)` can be shortened to be `(myGrade + yourGrade) * bonus`.
+
+There are two ways to overload operators. The first way is to declare a helper function such as `Mark& operator+(const Mark& left, const Mark& right)`. This approach is straightforward because it is easy to identify each operand as a parameter. However, helper functions might need additional friend declaration to access private members of a class. The second way is to declare operator overload as a method. In this case, `this` becomes the first operand implicitly (the left operand for binary operators). As a result, method approach requires one less parameter than the helper function approach. Also, method approach does not need friend declaration because operator overload is placed within class declaration.
+
+One needs to be cautious about namespaces when using operator overloading. As a function, an overloaded operator can go into a namespace and linker can throw errors if one does not qualify a full operator name with namespace for its definition.
+
