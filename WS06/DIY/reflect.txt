@@ -1,0 +1,10 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/03/13
+
+Class objects can hold on to various types of resources throughout their lifecycle. The most common resource type is dynamically allocated memory, but there are other types of resources such as files and network ports. It is object's responsibility to release the resources at appropriate timing, so that the resources can be used in other parts of the software without issue.
+
+In this workshop, I had to write classes that are attached to files. The challenge was to find a way to implement copy constructor and copy assignment operator without introducing any conflict in file ownership. For example, it would be problematic when two class instances are simulatenously accessing the same file. An unexpected file update from one instance can totally break the other instance. To prevent such issue from happening, files are duplicated (with "C_" prefix) whenever copy constructor or copy assignment operator was called on class instances. This approach ensured each class instance have access to its own file.
+
+Finally, for the DIY portion of the lab, I implemented [DynamicArrayList] class, which is a variable-length double array. This decision was made because it was not possible to know how many numbers are in a csv file without reading it to its end. [DynamicArrayList] is implemented similar to [ArrayList] from Java which can increase capacity on-the-go.
