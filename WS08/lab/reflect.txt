@@ -1,0 +1,10 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/03/26
+
+Abstract base class in C++ is a specification for child classes without concrete implementation. Each method of an abstract base class can be overriden by its child classes, and these overridable methods are called virtual functions. It is determined which implementation is to be used when virtual function is executed at runtime. This behavior is called polymorphism, and early-binding can be used to prevent this dynamic behavior.
+
+For example, [draw] and [getSpecs] are two virtual functions of [Shape] class. Even though [Shape] class itself does not provide any definition for its virtual functions, we can call [Shape::draw] and [Shape::getSpecs] inside [operator<<] and [operator>>] definition. Because no concrete class can have pure virtual function, all instances of [Shape] have definition of [draw] and [getSpecs] (they cannot be constructed otherwise). This is why it is safe to call virtual functions of [Shape].
+
+Also, destructors can be declared virtual, but they cannot be pure. Therefore, virtual destructors should be defined empty if they are not used.
