@@ -1,0 +1,12 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/03/27
+
+There are situations where multiple classes or functions are need to be implemented with the same logic but only different in types. A good example for such case is container classes: its behavior is largely identical regardless of the type of elements stored inside the container. Also, basic algorithms like sorting and searching can be applied to multiple types with the same logic.
+
+Because C++ is a strongly-typed language, each function and class has concrete type signature. It is not allowed to have dynamic type. However, it will be inconvenient to provide the same code repeatedly with only types changed.
+
+C++ function template and class template allows developers to make a "blueprint" for functions or classes. The templates can be turn into a concrete implementation by providing template parameters. Template instantiation occurs during compile-time, so C++ remains type-safe during runtime.
+
+With abstract base class (interface) and templates, C++ can be concise while maintaining its strictness.
