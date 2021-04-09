@@ -1,0 +1,16 @@
+Name: Donghyeon Kim
+Email: dkim167@myseneca.ca
+ID: 151613197
+Date: 2021/04/09
+
+In this workshop, I practiced what I learned about class inheritance and operation overloading. `Text` class is a concrete parent class of `HtmlText` class, and `Text` actually implements its virtual method (`write` function) unlike abstract base class.
+
+One problem I experienced during this workshop was handling the edge case for `Text::operator[]`. The issue can be broken down into two parts:
+
+1. I did not call `read` method inside the constructor. This left `m_content` in empty state.
+2. I did not handle `nullptr` in `operator[]` implementation. The documentation said the behavior was "undefined" when index is out of bound, but there was no mention about `nullptr`.
+
+I resolved the issue in the following manner.
+
+1. Read file inside the constructor so that `m_content` is not `nullptr` unexpectedly.
+2. `operator[]` returns reference to dummy char constant in global scope when `m_content` is `nullptr`. Returning a reference to a local variable is not allowed, so I had to make a char constant in global scope.
